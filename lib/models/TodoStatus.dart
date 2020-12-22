@@ -1,0 +1,1 @@
+enum TodoStatus { DONE, TODO }
