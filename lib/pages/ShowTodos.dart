@@ -7,8 +7,9 @@ class ShowTodos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<TodoController>(
+      //consumidor para a lista
       builder: (context, todoController, child) {
-        //o todoController é a instância da classa que o provider disponibilizou
+        //o todoController é a instância da classe que o provider disponibilizou
         return ListView(
           children: todoController.todos
               .map(
@@ -46,7 +47,7 @@ class ShowTodos extends StatelessWidget {
                   ),
                 ),
               )
-              .toList(),
+              .toList(), //encontrei uma forma sem usar o for... mas não sei se funciona corretamente, até agora tá ok!
         );
       },
     );

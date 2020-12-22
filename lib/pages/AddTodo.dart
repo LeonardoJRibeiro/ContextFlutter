@@ -7,12 +7,14 @@ class AddTodo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<TodoController>(builder: (context, todoController, child) {
-      bool isEdit = todoController.todoActive != null;
-      TextEditingController controllerTextDescription = TextEditingController(
+      // mais outro consumidor (sem aquele tanto de parâmetro)
+      bool isEdit =
+          todoController.todoActive != null; //se não está nulo, está editando
+      final controllerTextDescription = TextEditingController(
           text: isEdit ? todoController.todoActive.description : null);
       final formKey = GlobalKey<FormState>();
       return AlertDialog(
-        title: Text("Adicionar tarefa"),
+        title: Text(isEdit ? "Alterar tarefa" : "Adicionar tarefa"),
         content: Padding(
           padding: EdgeInsets.all(8),
           child: Container(

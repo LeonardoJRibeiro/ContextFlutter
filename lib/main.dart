@@ -27,7 +27,9 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<TodoController>(
+      // o primeiro consumidor, por causa do FloatingActionButton (FAB)
       builder: (context, todoController, child) {
+        //o todoController é a instância da classe que o provider disponibilizou
         return Scaffold(
           appBar: AppBar(
             title: Text("Lista de tarefas"),
@@ -48,7 +50,8 @@ class Home extends StatelessWidget {
                 },
               );
             },
-            child: todoController.todoActive == null
+            child: todoController.todoActive ==
+                    null //se tem um todo ativo, altera ele, se não, insere um novo
                 ? Icon(Icons.add)
                 : Icon(Icons.edit),
           ),
